@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learning DOM</title>
+    <style>
+        .bg{
+            background-color : #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg">
+    <div class="parent">
+    <div class="day">Monday</div>
+    <div class="day">Tuesday</div>
+    <div class="day">Wednesday</div>
+    <div class="day">Thrusday</div>
+    <div class="day">Friday</div>
+    <div class="day">Saturday</div>
+    <div class="day">Sunday</div>
+    </div>
+
+
+    <!-- <ul>
+        <li class="list-item">I</li>
+        <li class="list-item">am</li>
+        <li class="list-item">Sejal</li>
+        <li class="list-item">and</li>
+        <li class="list-item">I</li>
+        <li class="list-item">am</li>
+        <li class="list-item">Practicing</li>
+        <li class="list-item">Document</li>
+        <li class="list-item">Object</li>
+        <li class="list-item">Model</li>
+        <li class="list-item">Thankyou</li>
+    </ul> -->
+</body>
+
+<script>
+   let parent = document.querySelector('.parent');
+   console.log(parent);
+   console.log(parent.children);
+   
+
+   for(let i=0; i<parent.children.length; i++){
+       // console.log(parent.children[i].innerHTML);
+        
+   }
+
+   parent.children[2].style.color = 'orange';
+   parent.children[2].style.fontSize = "20px";
+
+
+   console.log(parent.firstElementChild);
+   console.log(parent.lastElementChild);
+
+   let myDay = document.querySelector('.day');
+
+   console.log(myDay.parentElement);
+   console.log(myDay.firstChild);
+   console.log(myDay.nextElementSibling);
+   console.log(myDay.lastChild);
+   console.log(parent.childNodes);
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+</script>
+</html>

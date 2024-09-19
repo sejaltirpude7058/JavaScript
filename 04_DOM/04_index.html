@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+
+<script>
+ let myList = document.querySelector('.programmingLanguage');
+    // console.log(ib);
+     let myli = document.createElement('li')
+     myli.appendChild(document.createTextNode("C++"))
+     myList.insertBefore(myli, myList.children[0]);
+
+
+//    function addLanguage(langName){
+//   const li = document.createElement('li');
+//   li.innerHTML = `${langName}`
+//   document.querySelector('.programmingLanguage').appendChild(li);
+//    }
+//    addLanguage("Python")
+//    addLanguage("GoLang")
+
+    function addLanguage(langName){
+        let li = document.createElement('li');
+        let addText = document.createTextNode(`${langName}`);
+        li.appendChild(addText);
+        document.querySelector('.language').appendChild(li);
+    }
+
+    addLanguage("Python");
+    addLanguage("C++");
+    addLanguage("JAVA");
+    addLanguage("Golang");
+    addLanguage("Ruby");
+
+   // edit
+   let thirdLang = document.querySelector('li:nth-child(3)');
+   const newli = document.createElement('li')
+   //thirdLang.innerHTML = "C#"
+   //newli.textContent = "C#"
+   let addText = document.createTextNode("C#") //can also use text content and innerHtml but it is not optimised since it will travel throughout whole tree
+   newli.appendChild(addText)
+   thirdLang.replaceWith(newli);  
+
+   //edit
+    const firstLang = document.querySelector('li:first-Child')
+    firstLang.outerHTML = "<li>HTML</li>";
+
+    //remove
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove();
+
+</script>
+
+
+</html>

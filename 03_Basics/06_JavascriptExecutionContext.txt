@@ -1,0 +1,74 @@
+JavaScript Execution Context
+1)Global execution (environment) context
+2)Function Execution context
+3)Eval
+
+//how javascript code is executed
+ 1)Global execution (environment)
+--> to sabse phele jo bh code run krna ho kitna bh bda ho ya kitna bh chota ho
+global execution se run hota h or isko sabse phele allocate kiya jata h this k andr
+
+//1)Memory  creation Phase
+//--> memory phase me sare variables ko ikkatha kiya jata h or unko apne pas bs rkha jata hai
+//sabse code me jitne bh variables k unko ikhhata krke unke name liye jate hai or sare varibles
+// me undefined value ko store kiya jata hai        example code
+//val1 --> undefined                             //1 let val1 = 10;
+//val2 --> undefined                             //2 let val2 = 5;
+//addNum --> defination                          //3 function addNum(num1, num2){
+//result1 -->undefined                           //4 let total = num1+num2;
+//result2 --> undefined                          //5 return total;
+//result2 --> undefined                          //6 }
+                                                 //7 result1 = addNum(val1, val2);
+                                                 //8 result2 = addNum(3,6);
+
+//3)Execution Phase
+//abhi values assign hogi jo code me variable ko di gyi h
+// val1 <--10;
+// val2 <--5;
+// result1 = 15;
+//addNum k andr kuch nhi hoga kyuki vaha execution krne k liye kuch h hi nhi
+// line 7 addNum will create its diffrent new execution context
+//new variable enviornment + execution thread
+//(jitni bar bh functions execute hote h hr bar bnega new variable envionment or execution thread)
+//                    |
+//                    V
+//1) sabse phle memoryphase   //2)execution phase
+// val1 = undefined               num1 = 10
+//val2 = undefined                num2 = 5
+// total = undefined              total = 15
+//hum dekh sakte h hamare example code me total return bh hora h ye return hota h vaps iske parent 
+//execution context h vaha pr ye return hojayega
+//ekbar hamara new execution context ka kam hogya to vo delete bh hojayega
+//line 8 ab firse hum dekh sakte h function call hua hai to firse ab new execution context bnega 
+jisme //new variable enviornment + execution thread hoga
+
+
+Summary
+The working of the JavaScript works on three phases:
+1. Global Execution Context
+2. Memory phase / Creation phase
+3. Execution phase
+
+Phase 1: Global Execution Context
+The value of `this` keyword is set to Global Execution Context (which is an empty Object in NODE
+ environment, & window object in browser environment)
+
+Phase 2: Memory phase
+During this phase, JS engine scans the code and assigns the initial values for the variables ,
+ functions, etc.. For variables they are 'undefined' and for functions they are set to their function
+ definition
+
+Phase 3: Execution phase
+After the creation phase completed, the execution phase begins where actual values of the variables 
+are set. And when the functions are called it creates a new 'Function Execution' context
+ (new variable enviornment + execution thread) which consists of two phases
+  (they works same as explained above but only for the particular function scope):
+1. Memory phase 
+2. Execution phase 
+The return value of the 'Function Execution' context is passed to the Global Execution Context
+
+
+//CallStack
+For live demo:
+browser > inspect > Sources
+create a snippet with few functions and visually experience the call stack.

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learn To Create Element</title>
+
+    <style>
+        .bg {
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg">
+</body>
+
+
+<script>
+let div = document.createElement('div');
+div.className = 'container'
+div.id = 'box'
+div.setAttribute('title', 'Generated Title')
+
+div.style.backgroundColor = 'green'
+div.style.padding = '10px'
+
+
+
+let myNode = document.createTextNode(`Hope This Works`);
+div.appendChild(myNode)
+
+document.body.appendChild(div)
+console.log(div);
+
+</script>
+
+</html>
