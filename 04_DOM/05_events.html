@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML|Events</title>
+    <style>
+         body{
+            background-color: #212121;
+            color: aliceblue;
+         }
+
+        /* #images{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            
+
+        } */
+
+        img{
+            margin: 5px;
+            padding: 5px;
+        }
+    </style>
+  </head>
+  <body>
+    <div>
+      <ul id="images">
+        <li>
+          <img width="200px" id="flower1"
+            src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </li>
+        <li>
+          <img width="200px" id="flower2"
+            src="https://images.pexels.com/photos/68507/spring-flowers-flowers-collage-floral-68507.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </li>
+        <li>
+          <img width="200px" id="flower3"
+            src="https://images.pexels.com/photos/46216/sunflower-flowers-bright-yellow-46216.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="" onclick="alert(`Sun flower`)"
+          />
+        </li>
+        <li>
+          <img width="200px" id="flower4"
+            src="https://images.pexels.com/photos/1408221/pexels-photo-1408221.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </li>
+        <li>
+          <img width="200px" id="flower5"
+            src="https://images.pexels.com/photos/67857/daisy-flower-spring-marguerite-67857.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </li>
+        <li>
+          <img width="200px" id="flower6"
+            src="https://images.pexels.com/photos/992734/pexels-photo-992734.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </li>
+        <li>
+          <img width="200px" id="flower7"
+            src="https://images.pexels.com/photos/1477166/pexels-photo-1477166.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </li>
+        <li>
+          <img width="200px" id="flower8"
+            src="https://images.pexels.com/photos/60909/rose-yellow-flower-petals-60909.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </li>
+        <li> <a href="https://www.google.com" id="google">Google</a></li>
+      </ul>
+    </div>
+  </body>
+    
+  <!-- onclick="alert(`Sun flower`)" the alert statement we have written in flower3 is not good approach -->
+
+
+  <script>
+
+    //this can also coz problem in big codes and future
+//    document.getElementById('flower4').onclick = function(){
+//     alert("Beautiful pink flowers")
+//    }
+
+//prefered method
+// document.getElementById('flower1').addEventListener( 'click', function(){
+//     alert("Beautiful Rose")
+// })
+//-----------------------------------------------------------------------------------------------------
+    //event propagation has two context
+    //Propagation means bubbling up to parent elements or capturing down to child elements
+    //1.event bubbling and 2.event capturing
+    //market me jo zyadatr use hota h vo h (default false)vo h event bubbling
+    //but kuch scenarios me event capturing ka bh use hota h jo h true
+
+// document.getElementById('images').addEventListener('click', function(){
+//     console.log("clicked inside ul")
+    
+// }, false)
+
+//try to use true as well for better understanding true event capturing
+// document.getElementById('flower5').addEventListener('click', function(e){
+//     console.log("clicked white Flowers image")
+    
+// }, false)
+
+
+// document.getElementById('flower5').addEventListener('click', function(e){
+//     console.log('Clicked White Flowers');
+//     e.stopPropagation(); // Stop the event from bubbling up to 'images'
+// }, false);
+
+// Without stopPropagation:
+// Clicking flower5 triggers its event and also the event on its parent, images.
+// Useful when you want actions on both the element and its parent.
+
+// With stopPropagation:
+// Clicking flower5 only triggers its own event.
+// Useful when you want to prevent the parent element’s event from being triggered, ensuring isolated behavior for flower5
+
+
+document.getElementById('google').addEventListener('click', (event) => {
+    console.log("Google Clicked");
+    event.stopPropagation();
+    event.preventDefault();
+    
+}, false );
+
+
+// The preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
+
+// For example, this can be useful when:
+
+// Clicking on a "Submit" button, prevent it from submitting a form
+// Clicking on a link, prevent the link from following the URL
+// Note: Not all events are cancelable. Use the cancelable property to find out if an event is cancelable.
+
+// Note: The preventDefault() method does not prevent further propagation of an event through the DOM. Use the stopPropagation() method to handle this.
+
+
+// document.querySelector('#images'),addEventListener('click', function(e){
+//     console.log(e.target.parentNode);
+//     let removeImg = e.target.parentNode; // we are targeting parentNode of li that is ul so if hum list item ko click krdenge to pure list ki remove hojayegi
+//     removeImg.remove();
+
+//     //removeIt.parentNode.removeChild(removeIt)
+    
+// }, false);
+
+document.querySelector('#images').addEventListener('click', function(e){
+    console.log(e.target.tagName); //IMG
+    if(e.target.tagName === 'IMG'){
+        console.log(e.target.id);
+        let removeImg = e.target.parentNode;
+        removeImg.remove()
+    }
+    
+})
+
+ 
+  </script>
+  </html>

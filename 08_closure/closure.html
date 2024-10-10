@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to closure</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="pink">Pink</button>
+    <button id="green">Green</button>
+    <button id="purple">Purple</button>
+</body>
+
+<script>
+    //understanding lexical scope in javascript
+
+    /*
+    outter() creates a local variable called username and a function called inner() and inner2(). The inner() and inner2() function is an inner function that is defined inside outter() and is available only within the body of the outter() function. Note that the inner() and inner2 inner2 function has no local variables of its own. However, since inner functions have access to the variables of outer scopes, outter() can access the variable name declared in the parent function, outter().
+    */
+
+    function outter(){
+        //variable decalred in outter parent function 
+        let username = "Sejal";
+         //The inner functions will have the access
+        function inner() {
+            console.log(`Inner Func : ${username}`);
+            //but variable declared in inner function will not have the access to outter function or other functions out of scope
+        }
+
+        inner()
+
+        function inner_2() {
+            console.log( `Inner2 Func : ${username}` );
+            
+        }
+
+        inner_2()
+    }
+
+    outter()
+
+    //-----------------------------------------------------------------------------------------------
+   
+    //understanding closure in javascript
+
+    /*
+    
+    */
+
+    function init(){
+
+        let name = "Ayush";
+
+        function displayName(){
+            console.log(`Name : ${name}`);
+            
+        }
+        return displayName ;
+    }
+
+    let myFun = init();
+    myFun()
+
+    /*
+    jo variable myFun jo humne decalare kiya or excecute kiya or return kiya display name  to uske andr sirf displayname nahi jayega agr outer function exist  krta hai to us outer function ka bh pura scope jayega pura ka pura lexical scoping uth k jata h puri memory share hoti h bs executional context nahi isliye hum name print kra pare hai 
+    
+    // normal function me yad hoga apko koi value return krte h to vo bs bs value return hoti h 
+    but isme aisa nhi hota 
+    */
+
+
+</script>
+
+<script>
+   
+   //this works but this is very bad approch we are trying same code so many times no code reuseablity
+    // document.getElementById('orange').onclick = function(){
+    //     document.querySelector('body').style.backgroundColor = `orange`;
+    // }
+    // document.getElementById('pink').onclick = function(){
+    //     document.querySelector('body').style.backgroundColor = `pink`;
+    // }
+    // document.getElementById('green').onclick = function(){
+    //     document.querySelector('body').style.backgroundColor = `green`;
+    // }
+    // document.getElementById('purple').onclick = function(){
+    //     document.querySelector('body').style.backgroundColor = `purple`;
+    // }
+
+    function addcolor(color){
+        //this will not work
+        //  document.querySelector('body').style.backgroundColor = `${color}`
+
+        //we need to create a function and return that function we are using closure
+        function changeColor(){
+            document.querySelector('body').style.backgroundColor = `${color}` 
+        }
+          //remember not to execute only give refrence to return whole lexical scope 
+        return changeColor;
+
+    }
+
+    document.getElementById('orange').onclick = addcolor('orange')
+    document.getElementById('pink').onclick = addcolor('pink')
+    document.getElementById('green').onclick = addcolor('green')
+    document.getElementById('purple').onclick = addcolor('purple')
+</script>
+
+</html>

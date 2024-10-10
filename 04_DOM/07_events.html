@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Properties Example</title>
+</head>
+<body>
+
+    <h1>Event Properties Example</h1>
+
+    <!-- Buttons and Divs for Testing -->
+    <button id="clickMe">Click Me (type & timestamp)</button>
+    <br><br>
+    <a href="https://www.example.com" id="link">Go to Example (defaultPrevented)</a>
+    <br><br>
+    <button id="button1">Click Me (target, srcElement)</button>
+    <br><br>
+    <div id="parent" style="width: 200px; height: 100px; background-color: lightgray;">
+        <button id="child">Child Button (currentTarget)</button>
+    </div>
+    <br><br>
+    <div id="box1" style="width:100px; height:100px; background-color:blue;">Mouseout Test (toElement)</div>
+    <div id="box2" style="width:100px; height:100px; background-color:green;">Box 2</div>
+    <br><br>
+    <div style="width: 100%; height: 100vh;" id="clickArea">Click Area (clientX & screenX)</div>
+    
+ 
+
+    <!-- Script for JavaScript Code -->
+    <script>
+        // Example 1: type & timestamp
+        document.getElementById('clickMe').addEventListener('click', function(event) {
+            console.log('Event Type:', event.type); // 'click'
+            console.log('Event Timestamp:', event.timeStamp); // Timestamp in milliseconds
+        });
+
+        // Example 2: defaultPrevented
+        document.getElementById('link').addEventListener('click', function(event) {
+            event.preventDefault();
+            console.log('Default Prevented:', event.defaultPrevented); // true
+        });
+
+        // Example 3: target
+        document.getElementById('button1').addEventListener('click', function(event) {
+            console.log('Event Target:', event.target); // <button id="button1">Click Me</button>
+        });
+
+        // Example 4: srcElement (Deprecated)
+        document.getElementById('button1').addEventListener('click', function(event) {
+            console.log('Source Element:', event.srcElement); // <button id="button1">
+        });
+
+        // Example 5: currentTarget
+        document.getElementById('parent').addEventListener('click', function(event) {
+            console.log('Current Target:', event.currentTarget); // <div id="parent">...</div>
+        });
+
+        // Example 6: toElement (Deprecated)
+        document.getElementById('box1').addEventListener('mouseout', function(event) {
+            console.log('Mouse moving to:', event.toElement); // Outputs element where the mouse moves
+        });
+
+        // Example 7: clientX & screenX
+        document.getElementById('clickArea').addEventListener('click', function(event) {
+            console.log('Mouse X (clientX):', event.clientX, 'Mouse Y (clientY):', event.clientY);
+            console.log('Mouse X (screenX):', event.screenX, 'Mouse Y (screenY):', event.screenY);
+        });
+
+        // Example 8: altKey, ctrlKey, shiftKey
+        document.getElementById('button1').addEventListener('click', function(event) {
+            console.log('Alt Key pressed:', event.altKey);
+            console.log('Ctrl Key pressed:', event.ctrlKey);
+            console.log('Shift Key pressed:', event.shiftKey);
+        });
+
+       
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyCode Example</title>
+</head>
+<body>
+
+    <h2>Press any key on your keyboard</h2>
+    <input id="keyInput" placeholder="Press a key" style="padding: 10px; font-size: 16px;">
+
+    <p id="result"></p>
+
+    <script>
+        // Listen for any keypress on the input field
+        document.getElementById('keyInput').addEventListener('keydown', function(event) {
+            // Display the keyCode of the pressed key
+            document.getElementById('result').innerText = 'Key Code: ' + event.keyCode;
+
+            // Optional: Also display the actual key pressed
+            console.log('Key pressed: ', event.key);
+        });
+    </script>
+
+</body>
+</html>

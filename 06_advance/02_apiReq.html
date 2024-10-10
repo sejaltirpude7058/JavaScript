@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHTTPREQUEST TUTO</title>
+    
+</head>
+<body>
+     
+
+    <!-- Value	 State	          Description
+         0	     UNSENT	           Client has been created. open() not called yet.
+         1	     OPENED	           open() has been called.
+         2	     HEADERS_RECEIVED  send() has been called, and headers and status are available.
+         3	     LOADING	       Downloading; responseText holds partial data.
+         4	     DONE	           The operation is complete. -->
+    
+</body>
+<script>
+ const myURL = "https://api.github.com/users/hiteshchoudhary";
+ let xhr = new XMLHttpRequest();
+ xhr.open('GET', myURL);
+ xhr.onreadystatechange = (function(){
+    console.log(xhr.readyState);
+    if(xhr.readyState === 4){
+        // let data = this.responseText //bydefault most of the times string me aata h isliye we need to covert it into json object format in order to use data
+        const data = JSON.parse(this.responseText);
+        console.log(data.followers);
+        console.log(data.avatar_url);
+        
+        
+        
+    }
+ })
+ xhr.send();
+
+</script>
+</html>

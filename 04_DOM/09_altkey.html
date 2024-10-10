@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Learning Event Properties and Methods</title>
+</head>
+<body style="background-color: #212121; color: #fff">
+    Enter your name: <input type="text" id="fname">
+    <div class="myevents">
+        <h1>Today we are learning some important events</h1>
+        <p>Click in below button when you hold down the Alt key</p>
+        <button class="altKeyMouse">altKeyMouse</button>
+        <p>Press a key on the keyboard in  button to find out if the ALT key was pressed</p>
+        <button class="altKeyKeyboard">altKeyKeyboard</button>
+        <p>Click in below button when you hold down the Alt key</p>
+        <button class="altKey">Click Here!</button>
+        <p>Click in below button when you hold down the Alt key</p>
+    </div>
+</body>
+<script>
+
+let myName = document.querySelector('#fname');
+ myName.addEventListener('keyup', function(e){
+if(e.key){
+    myName.value = myName.value.toUpperCase();
+}
+ });
+
+
+    const myEvents = document.querySelector('.altKeyMouse');
+    myEvents.addEventListener('click', function(event){
+
+        //The altKey property returns true if aLt Kew is pressed other wise returns false
+        if(event.altKey)  console.log(`Alt Key was pressed`);
+        else console.log(`Alt Key was not pressed`);
+
+        // The altKey property returns true if the ALT key is pressed when a keyboard 
+        //event occurs.// Otherwise it returns false.
+        document.querySelector('.altKeyKeyboard').addEventListener('click', (event) => {
+            if(event.altKey) console.log(`Alt Key was pressed`);
+            else console.log(`Alt Key was not pressed`);
+        })
+
+
+    } ,false)
+</script>
+</html>

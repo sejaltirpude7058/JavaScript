@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning about setTimeOut</title>
+</head>
+<body style="background-color: #212121; color: #ffff;" >
+    <h1>
+        Learning JavaScript from Hitesh Chaudhary 
+    </h1>
+    <button id="stop">Stop</button>
+    <p></p>
+    <button id="stopIn">Stop</button>
+</body>
+<script>
+    /**
+     * setTimeOut() is a methos but this method also calls an API
+     * setTimeOut and setTimeInterval they our functions but not core functions ye hume browser ke through milte hai
+     * they are not a part of core javascript our javascript engine has 1 callstack and memory heap 
+       but ye functions jaise hi call krte h hum to ye bahar jate h fir event queue k through vapas se access
+     * milta hai
+     */
+
+    //  //syntax
+    //  setTimeOut(() => {
+    //     //code
+    //     console.log('hello');
+    //  }, 1000) //timer 
+
+
+    //  let changeHeading = function(){
+    //     document.querySelector('h1').innerHTML = `Hey this is Sejal Tirpude`;
+    //  }           //reference    
+    //  setTimeout(changeHeading ,5000);
+
+
+
+    //The clearTimeout() method clears a timer set with the setTimeout() method
+    //we need to give the referece to clearTimeout ki konse settimeout ka timer bnd krna h
+
+    let changeHeading = function(){
+        document.querySelector('h1').innerHTML = `Hey this is Sejal Tirpude`;
+     }          
+     
+                                //reference    
+    let changeMe =  setTimeout(changeHeading ,5000);
+
+    document.getElementById('stop').addEventListener('click', () => {
+     clearTimeout(changeMe);
+     console.log(`Stopped`);
+     
+    }, false);
+
+
+//setTnterval()   
+// The setInterval() method calls a function at specified intervals (in milliseconds).
+// The setInterval() method continues calling the function until clearInterval() is called, or the window is closed.
+// 1 second = 1000 milliseconds.
+
+ let stopInterval = setInterval( () => {
+    document.querySelector('p').innerHTML += `  Sejal Please be serious  `
+}, 1000);
+     
+//The clearInterval() method clears a timer set with the setInterval() method.
+  
+document.querySelector('#stopIn').addEventListener('click', function(e){
+  clearInterval(stopInterval);
+  console.log(`Stop Interval`);
+  
+})
+
+
+/*
+v. imp note : setTimeout setTnterval all is a part of asynchronous code its not necessary ki hamesha web p hi request bheje
+             asynchronous javascript k andr khud baked in hai that does'nt mean javascript asynchronous 
+             in default its a synchronous single threaded language 
+             sometimes we need to make our javascript code asynchronous api and setimeout n all ka use karke
+            
+             google p isliye dikhta h ki javascript asynchronous  programming language hai, hai kyuki vo 
+             api's sath aari hai uske isliye asynchronous h or asynchronous request  hum mar pare hai
+             asynchronous hai but jo default engine hai javascript ka vo asynchronous nahi hai
+             jo complete javascript ka runtime h vo asynchronous allow krta hai 
+*/
+
+// const saydate = function(str){
+//     console.log(str , Date.now())
+// }
+// let Interval;
+// document.querySelector("#start")
+// .addEventListener('click', function(){
+//  Interval = setInterval (saydate, 1000, 'Anything')
+
+// } )
+// document.querySelector("#stop")
+// .addEventListener ("click", function(){
+//     clearInterval (Interval)
+// }) 
+
+</script>
+</html>

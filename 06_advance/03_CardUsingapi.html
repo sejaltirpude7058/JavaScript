@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+    }
+    body, html {
+        height: 100%;
+        width: 100%;
+    }
+    #main {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+    }
+    .card {
+        height: 350px;
+        width: 300px;
+        background-color: cadetblue;
+        border: 1px solid black; 
+        border-radius: 10px;
+        box-shadow: 3px 5px 10px rgb(57, 55, 55);
+        padding: 10px;
+    }
+    img {
+        height: 250px;
+        width: 260px;
+        margin-top: 20px;
+        margin-left: 20px;
+        border-radius: 15px;
+    }
+    .container {
+        margin-top: 10px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <div id="main">
+        <div class="card">
+            <div id="cardImg"><img src="" alt=""></div>
+            <div class="container">   
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+   const reqURL = "https://api.github.com/users/hiteshchoudhary";
+
+   const xhr = new XMLHttpRequest();
+   xhr.open('GET', reqURL);
+   xhr.onreadystatechange = (function(){
+    if(xhr.readyState === 4){
+        const data = JSON.parse(this.responseText);
+        console.log(data);
+        
+       let cardImg = document.querySelector('img');
+       cardImg.src = data.avatar_url;
+      let belowImg = document.querySelector('.container');
+      belowImg.innerHTML = `<h3>Followers : ${data.followers} </h3> <p>${data.bio}</p> `
+    }
+   })
+
+   xhr.send()
+
+</script>
+</html>
