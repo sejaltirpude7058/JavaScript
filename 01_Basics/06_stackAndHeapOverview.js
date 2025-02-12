@@ -15,6 +15,19 @@ let anotherName = myName
  console.log(myName)
  console.log(anotherName);
 
+
+ /*
+
+   Stack Memory:
++-------------------+
+| myName            | ---> "Sejal"
++-------------------+
+| anotherName       | ---> "Chakula"
++-------------------+
+
+  
+  */
+
  //heap
  let userOne = {
     name : "Sejal",
@@ -28,3 +41,17 @@ let anotherName = myName
 
  console.log(userOne.email);
  console.log(userTwo.email);
+
+
+ /*
+
+  Stack Memory:                      Heap Memory:
++----------------+              +----------------------------+
+| userOne        | ------------>| {                          |
++----------------+              |   name: "Sejal",           |
+| userTwo        | ------------>|   age: 22,                 |
++----------------+              |   email: "sejal@gmail.com" |
+                                +----------------------------+
+
+  
+  */

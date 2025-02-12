@@ -1,3 +1,5 @@
+// prototype means extra properties and functionalities in any given data type
+
 let myUsers = {
     id : 1,
     name : "Sejal ",
@@ -80,7 +82,7 @@ Teacher.__proto__ = User;
 // 1. The object whose prototype is being set (Teacher)
 // 2. The object that will become the prototype (TeachingSupport)
 Object.setPrototypeOf(Teacher, TeachingSupport);
-
+          
 
 // Now that Teacher inherits from TeachingSupport, it should print 'false'
 console.log(Teacher.isAvailable);

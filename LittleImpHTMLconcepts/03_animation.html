@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+.box {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  animation: move-box 3s ease-in-out infinite alternate;
+}
+
+.tocircle {
+    text-align: center;
+    width: 50px;
+    height: 150px;
+    background-image: linear-gradient(to top, yellow, rgb(240, 21, 174), purple); /* Correct direction and removed trailing comma */
+    /* background-color: aquamarine; */
+    animation: spiral 2s ease infinite alternate-reverse;
+}
+
+@keyframes spiral {
+    from { 
+         width: 100px;
+/*          
+         transform: translateX(0); */
+         transform: rotateX(0deg);
+        }
+         to{
+            width: 200px;
+            /* border-radius: 50%; */
+            background-image: linear-gradient(to left,rgba(255, 213, 0, 0.863), crimson, red );
+            /* transform: translateX(200px); */
+            transform: rotateY(360deg);
+        }
+}
+
+@keyframes move-box {
+  0% { transform: translateX(0); }
+  50%{ transform: translateX(100px)}
+  100% { transform: translateX(200px); }
+}
+</style>
+</head>
+<body>
+    <div class="tocircle"><h1>Sejal</h1></div>
+    <div class="box"></div>
+</body>
+</html>

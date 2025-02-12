@@ -97,7 +97,45 @@ It is useful for cleanup tasks, like stopping a loading spinner or closing a con
  of success or failure.
  */
 
-//creating promise 5 and using  async await try catch 
+  //promise 5
+   function savetoDBPromise(data){
+    return new Promise(function(resolve, reject){
+        let internetSpeed = Math.floor(Math.random() * 10 ) + 1;
+        setTimeout(()=>{
+         if(internetSpeed > 4){
+            resolve(`success : Data was saved`);
+         }else{
+            reject(`failure : Weak Connection`);
+         }
+        },1000)
+    })
+}
+
+let request = savetoDBPromise({name : "sejal", age: 23});
+console.log(request);
+
+//the result is our resolve msg  resolve(`success : Data was saved`);
+request
+.then((result)=>{
+    console.log(`Promise1 resolved!`);
+     console.log(result);
+    return savetoDBPromise({branch : "ETC"})
+})
+.then((result) => {
+  console.log(`Promise2 resolved!`);
+  console.log(result);
+  //error is our reject msg   reject(`failure : Weak Connection`);
+})
+.catch((error) => {
+    console.log(`Error: Something went wrong promise rejected`);
+   
+});
+
+
+
+
+
+//creating promise 6 and using  async await try catch 
 
 const promise_5 = new Promise(function(resolve, reject){
     setTimeout(function(){

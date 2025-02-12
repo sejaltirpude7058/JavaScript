@@ -1,0 +1,29 @@
+body{
+    text-align: center;
+}
+
+.container{
+    background-color: rgba(107, 203, 229, 0.904);
+    width : 900px;
+    height: 500px;
+    margin: 0 auto;
+    display: flex ;
+    flex-direction: row;
+    justify-content: flex-start; /* main axis x ---🫱🏽*/
+    /* flex-wrap: wrap; */
+    /* align-items: center; */
+    align-content: flex-start; /*cross axis y ✋🏽|*/
+    
+    
+    
+}
+
+.container div{
+   width: 150px;
+   height: 100px;  
+
+}
+
+#orange {
+    align-self: center;
+}

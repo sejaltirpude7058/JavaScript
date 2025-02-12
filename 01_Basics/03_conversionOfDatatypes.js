@@ -3,7 +3,7 @@
 let myNumber = 45;
 let stringConvert = String(myNumber)
 console.log(typeof stringConvert) // our number 45 stored in myNumber variable is now coverted into
-// a string value which is stored in stringNumber
+// a string value which is stored in stringConvert
 
 //ex 2
 let someString = "Sejal Tirpude"

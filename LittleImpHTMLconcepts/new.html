@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular Progress Bar</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+
+        .progress-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+        }
+
+        .progress-ring {
+            transform: rotate(-90deg);
+            transform-origin: center;
+        }
+
+        .progress-ring circle {
+            fill: 0;
+            stroke-width: 10;
+            stroke-linecap: round;
+        }
+
+        .progress-ring .bg {
+            stroke: rgba(36, 35, 35, 0.9);
+        }
+
+        .progress-ring .progress {
+            stroke: url(#gradient);
+            stroke-dasharray: 314;
+            stroke-dashoffset: 200;
+            transition: stroke-dashoffset 1s ease-in-out;
+        }
+
+        .percentage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .title {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-container">
+        <svg class="progress-ring" width="120" height="120">
+            <!-- Gradient -->
+            <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="purple"/>
+                    <stop offset="100%" stop-color="pink"/>
+                </linearGradient>
+            </defs>
+
+            <!-- Background Circle -->
+            <circle class="bg" cx="60" cy="60" r="50"/>
+
+            <!-- Progress Circle -->
+            <circle class="progress" cx="60" cy="60" r="50"/>
+        </svg>
+        <div class="percentage">90%</div>
+    </div>
+    <div class="title">Web Development</div>
+
+    <script>
+        // Set progress dynamically
+        function setProgress(percent) {
+            const circle = document.querySelector('.progress');
+            const circumference = 2 * Math.PI * 50; // 2πr
+            const offset = circumference - (percent / 100) * circumference;
+            circle.style.strokeDashoffset = offset;
+        }
+
+        setProgress(90); // Set 95% progress
+    </script>
+
+</body>
+</html>

@@ -1,48 +1,48 @@
-// let myAr = new Array("om", "krish", "dev", "mihi", "kunal", "ovi");
+let myAr = new Array("om", "krish", "dev", "mihi", "kunal", "ovi");
 
-// let myAr_2 = new Array("tappu", "sonu", "daya", "goku");
+let myAr_2 = new Array("tappu", "sonu", "daya", "goku");
 
-// //what if we try to push our second array to our 1st array
+//what if we try to push our second array to our 1st array
 
-// // myAr.push(myAr_2);
+// myAr.push(myAr_2);
 
-// // console.log(myAr);// ['om','krish','dev','mihi','kunal','ovi',[ 'tappu', 'sonu', 'daya', 'goku' ] ]
-// //array k andr array chle jayega 
+// console.log(myAr);// ['om','krish','dev','mihi','kunal','ovi',[ 'tappu', 'sonu', 'daya', 'goku' ] ]
+//array k andr array chle jayega 
 
-// // in order to properly add(MERGE) 2 arrays using concat()
-// // let newMerge = myAr.concat(myAr_2);
-// // console.log(newMerge);
-// //expected output 
-// // [
-// //   'om',    'krish',
-// //   'dev',   'mihi',
-// //   'kunal', 'ovi',
-// //   'tappu', 'sonu',
-// //   'daya',  'goku'
-// // ]
+// in order to properly add(MERGE) 2 arrays using concat()
+// let newMerge = myAr.concat(myAr_2);
+// console.log(newMerge);
+//expected output 
+// [
+//   'om',    'krish',
+//   'dev',   'mihi',
+//   'kunal', 'ovi',
+//   'tappu', 'sonu',
+//   'daya',  'goku'
+// ]
 
-// //merging two arrays using spread operator (...)
-// //…Spread syntax looks exactly like rest syntax. In a way, spread syntax is the opposite of rest syntax.…
-// //…Only iterable values, like Array and String, can be spread in array literals and argument lists.…
-// //…Copying an array You can use spread syntax to make a shallow copy of an array.…
+//merging two arrays using spread operator (...)
+//…Spread syntax looks exactly like rest syntax. In a way, spread syntax is the opposite of rest syntax.…
+//…Only iterable values, like Array and String, can be spread in array literals and argument lists.…
+//…Copying an array You can use spread syntax to make a shallow copy of an array.…
 
-// let myNewMerge = [...myAr, ...myAr_2];
-// console.log(myNewMerge); //this will also add both arrays into new single array
+let myNewMerge = [...myAr, ...myAr_2];
+console.log(myNewMerge); //this will also add both arrays into new single array
 
-// //------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------
 
-// let anotherArray = new Array(1,2,3,[4,5],6,7,8,[3,4,5,[6,7,8],9],0); // in this case arrays ke andr addray ko hume ek simple 1 d array bannaa hai to will use flat()
+let anotherArray = new Array(1,2,3,[4,5],6,7,8,[3,4,5,[6,7,8],9],0); // in this case arrays ke andr addray ko hume ek simple 1 d array bannaa hai to will use flat()
  
-// //flat()
-// //flat(depth)
-// //The depth level specifying how deep a nested array structure should be flattened. Defaults to 1.
-// //The flat() method of Array instances creates a new array with all sub-array elements concatenated 
-// //into it recursively up to the specified depth.
+//flat()
+//flat(depth)
+//The depth level specifying how deep a nested array structure should be flattened. Defaults to 1.
+//The flat() method of Array instances creates a new array with all sub-array elements concatenated 
+//into it recursively up to the specified depth.
 
-// let anotherArray_2 = anotherArray.flat(Infinity);
-// console.log(anotherArray_2);
-// //expected output
-// //[ 1, 2, 3, 4, 5, 6, 7, 8, 3, 4, 5, 6, 7, 8, 9, 0 ]
+let anotherArray_2 = anotherArray.flat(Infinity);
+console.log(anotherArray_2);
+//expected output
+//[ 1, 2, 3, 4, 5, 6, 7, 8, 3, 4, 5, 6, 7, 8, 9, 0 ]
 
 
 //----------------------------------------------------------------------------------------------------------

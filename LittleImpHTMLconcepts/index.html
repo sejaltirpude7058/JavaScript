@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        form{
+           margin: 30px; 
+        }
+        input{
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+   
+    <table border="1">
+         <caption>Food Price</caption>
+       <thead>
+        <tr>
+            <th rowspan="2">Item</th>
+            <th colspan="2">Price</th>
+        </tr>
+       <tr>
+        <th>INR</th>
+        <th>USD</th>
+       </tr>
+
+       </thead>
+       <tbody>
+          <tr>
+              <td>Samosa</td>
+              <td>15</td>
+              <td>80</td>
+          </tr>
+          <tr>
+              <td>Frooti</td>
+              <td>34</td>
+              <td>120</td>
+          </tr>
+          <tr>
+             <td>Chips</td>
+             <td>10</td>
+             <td>50</td>
+          </tr>
+
+       </tbody>
+    </table>
+
+    <table border="1">
+        <caption>Practice Table</caption>
+        <tbody>
+            <tr>
+                <td rowspan="2"></td>
+                <td colspan="2">Average</td>
+                <td rowspan="2">Res Eyes</td>
+            </tr>
+            <tr>
+                <td>Height</td>
+                <td>Weight</td>
+            </tr>
+            <tr>
+                <td>Males</td>
+                <td>1.9</td>
+                <td>000.3</td>
+                <td>40%</td>
+            </tr>
+            <tr>
+                <td>Females</td>
+                <td>1.7</td>
+                <td>0002</td>
+                <td>30%</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form action="/submit" name="userform" autocomplete="off">
+        <label for="username">Username : </label>
+      <input type="text" name="username" id="username" required placeholder="Enter your username..">
+      <br>
+       <label for="age">Enter your Age : </label>
+       <input type="number" name="age" id="age" required  placeholder="Enter age..">
+      <br>
+      <label for="phone">Phone Number  : </label>
+      <input type="tel" name="phone-number" id="phone" placeholder="Enter phone Number.." maxlength="10" required>
+      <br>
+      <label for="email">Email</label>
+     <input type="email" name="email" id="email" placeholder="Enter your Email Address..">
+     <br>
+     <label for="gender">Gender : </label>
+     <input type="radio" name="gender" id="gender" value="Male"> Male
+     <input type="radio" name="gender" id="gender" value="Female"> Female
+     <br>
+     <label for="hobbies">Select your hobbies : </label>
+     <input type="checkbox" name="hobbies" id="hobbies" value="sports"> Sports
+     <input type="checkbox" name="hobbies" id="hobbies" value="music"> Music
+     <br>
+     <label for="country">Select Your Country</label>
+     <select name="country" id="country">
+        <option value="india">India</option>
+        <option value="usa">USA</option>
+        <option value="korea">Korea</option>
+        <option value="japan">Japan</option>
+     </select>
+     <br>
+     <label for="resume">Upload your Resume : </label>
+     <input type="file" name="resume" id="resume">
+     <br>
+     <label for="aboutyourself">Tell us about your self: </label>
+     <textarea name="aboutyourself" id="aboutyourself" cols="30" rows="10" maxlength="200" required></textarea>
+
+     <br>
+     <label for="date-and-time">Enter Date: </label>
+     <input type="datetime" name="date-and-time" id="date-and-time">
+
+     <br>
+     <label for="skills">Range your skills : </label>
+     <input type="range" name="skills" id="skills">
+     <br>
+     <input type="search" name="searched" id="search" placeholder="search">
+     <br>
+
+     <button type="submit">Submit</button>
+     <button type="reset">Reset</button>
+
+    </form>
+
+</body>
+</html>

@@ -2,17 +2,16 @@
 
 // if(typeof score === "number"){
 //     console.log("yes its number");
-    
+
 // }else{
 //     console.log("not a number");
-    
+
 // }
 
 // let isLoggedIn = false;
 
 // if(isLoggedIn) console.log(`user logged in`);
 // else console.log(`not logged in yet`);
-
 
 // let myArr = [];
 
@@ -21,29 +20,27 @@
 // console.log(`😇`);
 // console.log(`💔`);
 
-
 // const massMark = 78;
 // const heightMark = 1.69;
 // const massJohn = 92;
 // const heightJohn = 1.95;
- 
+
 // const BMIMark = massMark / (heightMark * heightMark);
 // const BMIJohn = massJohn / (heightJohn * heightJohn);
 // console.log(BMIMark, BMIJohn);
- 
+
 // if (BMIMark > BMIJohn) {
 //   console.log(`Mark's BMI (${BMIMark}) is higher than John's (${BMIJohn})!`)
 // } else {
 //   console.log(`John's BMI (${BMIJohn}) is higher than Mark's (${BMIMark})!`)
 // }
 
-
-// //switch statement 
+// //switch statement
 
 // let day = 'sunday';
 
 // switch(day){
-//    case 'monday' : 
+//    case 'monday' :
 //    console.log(`Go to meetup`);
 //    break;
 //    case 'tuesday' :
@@ -51,7 +48,7 @@
 //    case 'thrusday' :
 //     console.log(`study`);
 //     break;
-//     case 'friday' : 
+//     case 'friday' :
 //     console.log(`Work on projects`);
 //     break;
 //     case 'saturday' :
@@ -60,16 +57,36 @@
 //         break;
 //         default :
 //         console.log(`please enter valid day`);
-//         break;      
+//         break;
 // }
 
+//ternary operator
+let age = 18;
+let drink = age <= 19 ? `drink wine🍷` : `drink water💧`;
+console.log(drink);
 
-  //ternary operator
-  let age = 18;
-  let drink = age <= 19 ? `drink wine🍷` : `drink water💧`
-  console.log(drink);
+console.log(`I like to drink ${age <= 18 ? `wine🍷` : `water💧`}`);
 
-  console.log(`I like to drink ${age <= 18 ? `wine🍷` : `water💧`}`);
+//in string literals we can use ternary operator but cammot use if else expresseion
 
-  //in string literals we can use ternary operator but cammot use if else expresseion
-  
+let light = "red";
+
+if (light === "red") {
+  console.log("STOP ⛔");
+} else if (light === "yellow") {
+  console.log("WAIT ");
+} else if (light === "green") {
+  console.log("GO");
+}
+
+let str = "apple";
+
+if (str[0] === "a" && str.length > 3) {
+  console.log("good string");
+} else {
+  console.log("not good string");
+}
+
+let msg = "   Hello   ";
+let newStr = msg.trim().toUpperCase();
+console.log(newStr);

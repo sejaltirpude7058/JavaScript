@@ -1,23 +1,20 @@
 //in arrays we can store multiple values in a single variable(enables storing a collection
 // of multiple items under a single variable name)
 //in other programming languages such as c++ java arrays can store the values of similar datatype
- 
-
 
 // In JavaScript, arrays aren't primitives but are instead Array objects with the following core
 // characteristics:
 
-// JavaScript arrays are resizable and can contain a mix of different data types. 
+// JavaScript arrays are resizable and can contain a mix of different data types.
 
-// JavaScript arrays are not associative arrays and so, array elements cannot be accessed using 
+// JavaScript arrays are not associative arrays and so, array elements cannot be accessed using
 //arbitrary strings as indexes
 
 // JavaScript arrays are zero-indexed: the first element of an array is at index 0, the second is at
-// index 1, and so on 
+// index 1, and so on
 
 // JavaScript array-copy operations create shallow copies. (All standard built-in copy operations
 // with any JavaScript objects create shallow copies, rather than deep copies).
-
 
 //Shallow Copies
 // shallow copy of an object is a copy whose properties share the same references (point to the same
@@ -26,9 +23,9 @@
 
 //Deep Copy
 // A deep copy of an object is a copy whose properties do not share the same references
-// (point to the same underlying values) as those of the source object from which the copy was made. 
-//As a result, when you change either the source or the copy, you can be assured you're not causing 
-//the other object to change too. 
+// (point to the same underlying values) as those of the source object from which the copy was made.
+//As a result, when you change either the source or the copy, you can be assured you're not causing
+//the other object to change too.
 
 //  initialization and declaration
 // let myArr = [1,2,3,4,5,6,7];
@@ -36,7 +33,6 @@
 
 // let myArr2 = new Array(1,2,3,4,5,6,7);
 // console.log(myArr2);
-
 
 let arr = new Array(1,2,3,4,5);
 
@@ -53,7 +49,6 @@ let arr = new Array(1,2,3,4,5);
  //to delete values from end use pop()
  arr.pop();
 
-
  //to add value at starting of array
  arr.unshift(10);
 
@@ -62,7 +57,6 @@ let arr = new Array(1,2,3,4,5);
  arr.shift()
 
 //  console.log(arr);
-
 
 // //to convert array into string
 // let newArr = arr.join();
@@ -76,11 +70,10 @@ let arr = new Array(1,2,3,4,5);
 let myStringArr = new Array("vedika", "mihi", "poonam", "prajakta", "devika");
 console.log(myStringArr);
 
-let myns1 = myStringArr.slice(1, 3); 
+let myns1 = myStringArr.slice(1, 3);
 console.log(myns1);  //[ 'mihi', 'poonam' ]
 
-console.log("A ", myStringArr); //our original array will remain as it is 
-
+console.log("A ", myStringArr); //our original array will remain as it is
 
 //  Splice()
 // The splice() method of Array instances changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.
@@ -100,24 +93,19 @@ console.log(a1);// [ 'a', 'uu', 'ay', 'ayii', 'o', 'ou' ]
 
 console.log(arr2); // after  using tospliced() method our original array will remain as it is
 
+let myArr = ["january", "july", "March", "august"];
 
+myArr.shift();
+myArr.shift();
+myArr.unshift("june");
+myArr.unshift("july");
 
+console.log(myArr);
 
+const numbers =[1,-1,2,-2,3,0,4];
 
+// const newNumbers = numbers.filter(num => num >=0).map(num => num*num);
+// console.log(newNumbers);
 
-
-
-
-
- 
-
-
-
-
-
-
-
- 
-
-
-
+const n = [1, 4, 9, 0, 16];
+console.log(n.slice(2));
