@@ -38,6 +38,9 @@ let e = 1234596786789n; // bigInt number
 let f = null; // object
 let g; //undefined
 
+console.log(+true) //1
+console.log(+"") //0 
+
 // //datatypes
 console.log(a,typeof(a));
 console.log(b,typeof(b));
@@ -59,9 +62,9 @@ console.log( 2 == 1);// false
 console.log("2" > 1) // output will come true coz javascript has automatically converted our string
 // // into number but its not a good practice and make sure always use same datatype value
 
-console.log(null > 0)
-console.log(null >= 0)
-console.log(null==0)
+console.log(null > 0) //false
+console.log(null >= 0) //true
+console.log(null==0) //false
  /*
  the reason is that an equallity check == and comparison >= > < <= works diffrently
  comparison will convert null to a number, treating it as 0;
@@ -70,3 +73,7 @@ console.log(null==0)
  // === operator strictly check the value as well as the datatype of the value
  console.log("2" == 2)// true
  console.log("2" === 2) // false string and number are diffrent datatypes
+
+ console.log(undefined == 0 );
+ console.log( undefined > 0);
+ console.log(undefined < 0);

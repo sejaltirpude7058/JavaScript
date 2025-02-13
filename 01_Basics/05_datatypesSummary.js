@@ -9,6 +9,44 @@
 // primitive datatypes are passed by value 
 //Number, String, Boolean,  null, undefined, symbol, bigInt total 7 datatypes come under primitive
 
+/*
+Difference Between Primitive and Non-Primitive Data Types in JavaScript
+
+Feature	                      Primitive Data Types	                Non-Primitive Data Types
+Definition	                  Stores a single value directly	    Stores a reference to a memory location
+Mutability	                  Immutable (cannot be changed)	        Mutable (can be modified)
+Stored in	                  Stack Memory	                        Heap Memory
+Comparison	                  Compared by value	                    Compared by reference
+Example	let a = 10; let b = a;                                      let obj1 = {x: 10}; let obj2 = obj1;
+(b remains 10 even if a changes)                                    (changing obj2 also changes obj1)
+	
+
+
+Primitive Data Types in JavaScript
+Primitive types hold only a single value and are immutable.
+
+Number →      let num = 10;
+String →      let name = "Sejal";
+Boolean →     let isAvailable = true;
+Undefined →   let x;
+Null →        let y = null;
+Symbol →      let sym = Symbol("id");
+BigInt →      let bigNum = 123n;
+
+
+Non-Primitive Data Types in JavaScript
+Non-primitive types hold references to memory locations and are mutable.
+
+Object →     let person = {name: "Sejal", age: 22};
+Array →      let fruits = ["apple", "banana", "mango"];
+Function →   function greet() { return "Hello!"; }
+Date →       let today = new Date();
+RegExp →     let pattern = /hello/g;
+
+*/
+
+
+
 const id = Symbol('123');
 const anotherId = Symbol('123');
  // every symbol is unique
@@ -35,6 +73,12 @@ const myObj = {
 
 let myNull = null;
 console.log(typeof myNull); //object
+
+function myFunction(){
+    console.log("hello i'm function n will only be execute whenever you will call me😉");
+};
+myFunction();
+console.log(typeof myFunction);
 
 
 //is JavaScript dynamic or static language
