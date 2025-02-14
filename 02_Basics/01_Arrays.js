@@ -67,6 +67,40 @@ let arr = new Array(1,2,3,4,5);
 //slice()
 // The slice() method of Array instances returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified.
 
+/**
+ 
+Example 1: slice() with Primitive Values (No Reference Issues)
+
+let arr = [1, 2, 3, 4, 5];
+let newArr = arr.slice(1, 4); // [2, 3, 4]
+
+console.log(newArr); // [2, 3, 4]
+console.log(arr); // [1, 2, 3, 4, 5] (Original remains unchanged)
+Since primitive values are copied, newArr has a completely separate copy.
+
+Example 2: slice() with Objects (Shallow Copy Issue)
+
+let arr = [{ a: 1 }, { b: 2 }, { c: 3 }];
+let newArr = arr.slice(0, 2); // Copies first two elements
+
+console.log(newArr); // [{ a: 1 }, { b: 2 }]
+
+// Modifying an object inside newArr
+newArr[0].a = 100;
+console.log(arr); // [{ a: 100 }, { b: 2 }, { c: 3 }] (Original is affected!)
+🔴 Why did arr change?
+
+slice() copied the object references.
+Both arr[0] and newArr[0] point to the same object in memory.
+Modifying newArr[0] also modifies arr[0], since both refer to the same address.
+Key Takeaways
+1️⃣ slice() creates a new array (the original is not modified).
+2️⃣ For primitive values, it copies the values.
+3️⃣ For objects, it copies references, meaning changes inside the object affect both arrays.
+4️⃣ If you need a deep copy (to avoid reference issues), use structuredClone() or JSON.parse(JSON.stringify(array)).
+ 
+ */
+
 let myStringArr = new Array("vedika", "mihi", "poonam", "prajakta", "devika");
 console.log(myStringArr);
 

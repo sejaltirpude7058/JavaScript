@@ -97,7 +97,60 @@ console.log(newArr_2);
 
 
 
+/*
 
+Understanding Shallow Copy in Simple Terms
+A shallow copy means that if you modify the original array, the copied array may or may not change, depending on the type of data inside it.
+
+🔹 If the array contains only primitive values (numbers, strings, booleans, etc.), then both arrays are independent.
+🔹 If the array contains objects (or arrays), then both arrays share references, meaning changes to objects inside one array will reflect in the other.
+
+1️⃣ Example: Shallow Copy with Primitive Values (No Reference Issue)
+
+let arr = [1, 2, 3, 4, 5];
+let copiedArr = [...arr]; // Shallow copy using spread operator
+
+copiedArr[0] = 100; // Modify copied array
+console.log(arr); // [1, 2, 3, 4, 5] (Original remains unchanged)
+✅ Since primitive values are copied separately, changing one does not affect the other.
+
+2️⃣ Example: Shallow Copy with Objects (Reference Issue)
+
+let arr = [{ a: 1 }, { b: 2 }, { c: 3 }];
+let copiedArr = [...arr]; // Shallow copy
+
+copiedArr[0].a = 100; // Modify object inside copied array
+console.log(arr); // [{ a: 100 }, { b: 2 }, { c: 3 }] (Original is also modified!)
+🔴 Why did the original array change?
+
+Both arr[0] and copiedArr[0] point to the same object in memory.
+Modifying copiedArr[0].a also modifies arr[0].a, since they share the same reference.
+3️⃣ What Happens If You Modify the Original Array?
+If you change a primitive value in the original array, the copied array is not affected.
+If you change an object inside the original array, the copied array is affected.
+
+let arr = [{ a: 1 }, { b: 2 }, { c: 3 }];
+let copiedArr = [...arr];
+
+arr[0].a = 500; // Change original array
+console.log(copiedArr); // [{ a: 500 }, { b: 2 }, { c: 3 }] (Copied array also changed!)
+🔴 Again, both arrays share references to objects.
+
+Conclusion
+Modification Type	Does It Affect the Copy?
+Changing a primitive value in the original	❌ No effect on copied array
+Changing a primitive value in the copied array	❌ No effect on original array
+Changing an object inside the original	✅ Copied array is affected
+Changing an object inside the copied array	✅ Original array is affected
+If you want to avoid reference issues, use a deep copy:
+
+
+let deepCopy = JSON.parse(JSON.stringify(arr));
+✅ Now the copied array is completely independent.
+
+
+
+*/
 
 
 
